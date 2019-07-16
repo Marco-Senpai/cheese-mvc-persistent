@@ -55,11 +55,11 @@ public class Cheese {
         this.description = description;
     }
 
-    public CheeseType getType() {
-        return type;
+    public Category getType() {
+        return category;
     }
 
-    public void setType(CheeseType type) {
-        this.type = type;
+    public void setType(Category type) {
+        this.category = type;
     }
 }
