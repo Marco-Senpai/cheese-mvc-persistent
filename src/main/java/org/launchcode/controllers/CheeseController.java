@@ -49,14 +49,16 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@ModelAttribute  @Valid Cheese newCheese,
                                        Errors errors, @RequestParam int categoryId, Model model) {
-        Category cat = categoryId.findOne(categoryId);
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cheese");
+            model.addAttribute("categories", categoryDao.findAll());
             return "cheese/add";
         }
+        Category cat = categoryDao.findOne(categoryId);
         cheeseDao.save(newCheese);
         return "redirect:";
+
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.GET)
